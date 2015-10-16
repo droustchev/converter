@@ -1,0 +1,13 @@
+machine:
+  environment:
+    COERALLS_REPO_TOKEN: IWU5O3FQUQCqklN6K9hes4Fm4EhlMGCj6
+    COVERALLS_PARALLEL: true
+
+test:
+  override:
+    - grunt mocha_istanbul
+    - grunt coveralls
+
+notify:
+  webhooks:
+    - url: https://coveralls.io/webhook?repo_token=IWU5O3FQUQCqklN6K9hes4Fm4EhlMGCj6
