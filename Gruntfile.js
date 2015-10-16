@@ -16,12 +16,21 @@ module.exports = function(grunt) {
       coveralls: {
         src: 'test',
         options: {
-          //src: 'coverage/*', //coverage output location
+          coverage: true,
           force: false, // throw errors, preventing CI builds
           reportFormats: ['html', 'lcovonly', 'cobertura', 'text-summary', 'text'],
         },
       },
     },
+  });
+
+  grunt.event.on('coverage', function(lcov, done){
+    require('coveralls').handleInput(lcov, function(err){
+      if (err) {
+        return done(err);
+      };
+      done();
+    });
   });
 
   grunt.registerTask('coveralls', ['mocha_istanbul:coveralls']);
