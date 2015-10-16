@@ -1,7 +1,6 @@
 /*global module:false*/
 module.exports = function(grunt) {
-  
-  grunt.loadNpmTasks('grunt-coveralls');
+
   grunt.loadNpmTasks('grunt-mocha-istanbul');
 
   // Project configuration.
@@ -12,17 +11,19 @@ module.exports = function(grunt) {
         src: 'test',
         options: {
           mask: '*.js'
-        }
+        },
       },
-    },
-
-    coveralls: {
-      options: {
-        force: false, // prints errors, preventing CI builds
-      },
-      all: {
-        src: 'coverage/*',
+      coveralls: {
+        src: 'test',
+        options: {
+          //src: 'coverage/*', //coverage output location
+          force: false, // throw errors, preventing CI builds
+          reportFormats: ['cobertura', 'lcovonly', 'html'],
+        },
       },
     },
   });
+
+  grunt.registerTask('coveralls', ['mocha_istanbul:coveralls']);
+  grunt.registerTask('coverage', ['mocha_istanbul:coverage']);
 };

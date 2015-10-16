@@ -5,7 +5,6 @@ machine:
 
 test:
   override:
-    - grunt mocha_istanbul
     - grunt coveralls
 
 notify:
