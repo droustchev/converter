@@ -18,7 +18,7 @@ module.exports = function(grunt) {
         options: {
           //src: 'coverage/*', //coverage output location
           force: false, // throw errors, preventing CI builds
-          reportFormats: ['cobertura', 'lcovonly', 'html'],
+          reportFormats: ['html', 'lcovonly', 'cobertura', 'text-summary', 'text'],
         },
       },
     },
