@@ -1,6 +1,9 @@
 var express = require("express");
+var http = require("http");
 var app = express();
 var converter = require("./converter");
+
+var PORT = 3000;
 
 app.get("/rgbToHex", function(req, res) {
   var red = parseInt(req.query.red, 10);
@@ -20,4 +23,6 @@ app.get("/hexToRgb", function(req, res) {
   res.send(JSON.stringify(rgb));
 });
 
-app.listen(3000);
+var server = http.createServer(app).listen(PORT, function() {
+  console.log('Express server listening on port ' + PORT);
+});
