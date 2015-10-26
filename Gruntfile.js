@@ -1,11 +1,22 @@
+var path = require("path");
+
 /*global module:false*/
 module.exports = function(grunt) {
 
+  grunt.loadNpmTasks('grunt-express-server');
   grunt.loadNpmTasks('grunt-mocha-istanbul');
 
   // Project configuration.
   grunt.initConfig({
     // Task configuration.
+    express: {
+      test: {
+        options: {
+          script: 'app/server.js'
+        }
+      }
+    },
+
     mocha_istanbul: {
       coverage: {
         src: 'test',
@@ -33,6 +44,6 @@ module.exports = function(grunt) {
     });
   });
 
-  grunt.registerTask('coveralls', ['mocha_istanbul:coveralls']);
-  grunt.registerTask('coverage', ['mocha_istanbul:coverage']);
+  grunt.registerTask('coveralls', ['express:test', 'mocha_istanbul:coveralls']);
+  grunt.registerTask('coverage', ['express:test', 'mocha_istanbul:coverage']);
 };
