@@ -5,6 +5,11 @@ var converter = require("./converter");
 
 var PORT = 3000;
 
+app.get("/healthCheck", function(req, res) {
+  var ts = new Date();
+  res.send(ts + ": All systems green!");
+});
+
 app.get("/rgbToHex", function(req, res) {
   var red = parseInt(req.query.red, 10);
   var green = parseInt(req.query.green, 10);
