@@ -21,7 +21,8 @@ module.exports = function(grunt) {
       coverage: {
         src: 'test',
         options: {
-          mask: '*.js'
+          mask: '*.js',
+          mochaOptions: ['--reporter', 'mocha-junit-reporter']
         },
       },
       coveralls: {
@@ -29,6 +30,7 @@ module.exports = function(grunt) {
         options: {
           coverage: true,
           force: false, // throw errors, preventing CI builds
+          mochaOptions: ['--reporter', 'mocha-junit-reporter'],
           reportFormats: ['html', 'lcovonly', 'cobertura', 'text-summary', 'text'],
         },
       },

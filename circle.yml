@@ -5,6 +5,7 @@ machine:
 
 test:
   override:
+    - mkdir -p $CIRCLE_TEST_REPORTS/mocha
     - grunt coveralls
   post:
     - bash <(curl -s https://codecov.io/bash)
