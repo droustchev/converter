@@ -6,6 +6,8 @@ machine:
 test:
   override:
     - grunt coveralls
+  post:
+    - bash <(curl -s https://codecov.io/bash)
 
 notify:
   webhooks:
