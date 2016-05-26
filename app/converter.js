@@ -14,6 +14,10 @@ exports.rgbToHex = function(red, green, blue) {
   return pad(redHex) + pad(greenHex) + pad(blueHex);
 };
 
+exports.hello = function(name) {
+  return "Hello, " + name;
+};
+
 function pad(hex) {
   return(hex.length === 1 ? "0" + hex : hex);
 };
