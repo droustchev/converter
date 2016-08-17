@@ -1,0 +1,10 @@
+language: node_js
+node_js:
+  - "6"
+  - "5"
+  - "4"
+before_script:
+  - npm install
+script:
+  - node app/server.js
+  - npm test
