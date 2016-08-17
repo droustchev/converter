@@ -25,4 +25,12 @@ describe("Color Code Converter", function() {
       expect(blueHex).to.deep.equal([0, 0, 255]);
     });
   });
+
+  describe("Greeter function", function() {
+    it("should greet using the provided name", function() {
+      var reply = converter.hello("foobar");
+
+      expect(reply).to.equal("Hello, foobar");
+    });
+  });
 });
