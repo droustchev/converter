@@ -5,6 +5,7 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-express-server');
   grunt.loadNpmTasks('grunt-mocha-istanbul');
+  grunt.loadNpmTasks('grunt-mocha-test');
 
   // Project configuration.
   grunt.initConfig({
@@ -15,6 +16,13 @@ module.exports = function(grunt) {
           script: 'app/server.js'
         }
       }
+    },
+
+    mochaTest: {
+      test: {
+        optiosn: 'spec',
+      },
+      src: ['test/**/*.js']
     },
 
     mocha_istanbul: {
@@ -48,4 +56,5 @@ module.exports = function(grunt) {
 
   grunt.registerTask('coveralls', ['express:test', 'mocha_istanbul:coveralls']);
   grunt.registerTask('coverage', ['express:test', 'mocha_istanbul:coverage']);
+  grunt.registerTask('test', ['express:test', 'mochaTest']);
 };
