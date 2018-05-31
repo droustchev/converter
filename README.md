@@ -2,5 +2,5 @@
 
 [![codecov](https://codecov.io/gh/droustchev/converter/branch/master/graph/badge.svg)](https://codecov.io/gh/droustchev/converter)
 
-This repo will now use GPG-signed commits!
+This repo will now use GPG-signed commits for all verified email addresses!
 
