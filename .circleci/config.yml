@@ -7,14 +7,14 @@ jobs:
       - image: circleci/node:6.14-stretch
     steps:
       - checkout
-      - run:
-          name: update npm
-          command: |
-            sudo npm install -g npm@latest
+      # - run:
+      #     name: update npm
+      #     command: |
+      #       sudo npm install -g npm@latest
       - run:
           name: install npm dependencies
           command: |
-            npm install
+            npm install --dev
       - run:
           name: run tests
           command: |
